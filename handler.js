@@ -252,6 +252,64 @@ export async function handler(chatUpdate) {
                     lastweekly: 0,
                     lastmonthly: 0,
                 }
+            let chat = global.db.data.chats[m.chat]
+            if (typeof chat !== 'object')
+                global.db.data.chats[m.chat] = {}
+            if (chat) {
+                if (!('isBanned' in chat))
+                    chat.isBanned = false
+                if (!('welcome' in chat))
+                    chat.welcome = true
+                if (!('detect' in chat))
+                    chat.detect = true
+                if (!('sWelcome' in chat))
+                    chat.sWelcome = ''
+                if (!('sBye' in chat))
+                    chat.sBye = ''
+                if (!('sPromote' in chat))
+                    chat.sPromote = ''
+                if (!('sDemote' in chat))
+                    chat.sDemote = ''
+                if (!('delete' in chat))
+                    chat.delete = true
+                if (!('modohorny' in chat))
+                    chat.modohorny = false    
+                if (!('autosticker' in chat))
+                    chat.autosticker = false                    
+                if (!('audios' in chat))
+                    chat.audios = false                            
+                if (!('antiLink' in chat))
+                    chat.antiLink = false
+                if (!('antiLink2' in chat))
+                    chat.antiLink2 = false
+                if (!('antiviewonce' in chat))
+                    chat.antiviewonce = false
+                if (!('antiToxic' in chat))
+                    chat.antiToxic = false
+                if (!('antiTraba' in chat))
+                    chat.antiTraba = false
+                if (!isNumber(chat.expired))
+                    chat.expired = 0
+            } else
+                global.db.data.chats[m.chat] = {
+                    isBanned: false,
+                    welcome: true,
+                    detect: true,
+                    sWelcome: '',
+                    sBye: '',
+                    sPromote: '',
+                    sDemote: '',
+                    delete: true,
+                    modohorny: true,
+                    autosticker: false,
+                    audios: true,
+                    antiLink: false,
+                    antiLink2: false,
+                    antiviewonce: false,
+                    antiToxic: false,
+                    antiTraba: false,
+                    expired: 0,
+                }
             let settings = global.db.data.settings[this.user.jid]
             if (typeof settings !== 'object') global.db.data.settings[this.user.jid] = {}
             if (settings) {
@@ -459,7 +517,7 @@ export async function handler(chatUpdate) {
                     continue // Limit habis
                 }
                 if (plugin.level > _user.level) {
-                    this.reply(m.chat, `[❗𝙄𝙣𝙛𝙤 ❗] 𝑺𝒆 𝒓𝒆𝒒𝒖𝒊𝒆𝒓𝒆 𝒆𝒍 𝒏𝒊𝒗𝒆𝒍 👉 ${plugin.level} 𝑷𝒂𝒓𝒂 𝒖𝒔𝒂𝒓 𝒆𝒔𝒕𝒆 𝒄𝒐𝒎𝒂𝒏𝒅𝒐, 𝒕𝒖 𝒏𝒊𝒗𝒆𝒍 𝒆𝒔 👉 ${_user.level}*`, m)
+                    this.reply(m.chat, `[❗𝙄𝙣𝙛𝙤 ❗] 𝑺𝒆 𝒓𝒆𝒒𝒖𝒊𝒆𝒓𝒆 𝒆𝒍 𝒏𝒊𝒗𝒆𝒍 👉 ${plugin.level} 𝑷𝒂𝒓𝒂 𝒖𝒔𝒂𝒓 𝒆𝒔𝒕𝒆 𝒄𝒐𝒎𝒂𝒏𝒅𝒐, 𝒕𝒖 𝒏𝒊𝒗𝒆𝒍 𝒆𝒔 👉  ${_user.level}*`, m)
                     continue // If the level has not been reached
                 }
                 let extra = {
@@ -501,7 +559,7 @@ export async function handler(chatUpdate) {
                             for (let [jid] of global.owner.filter(([number, _, isDeveloper]) => isDeveloper && number)) {
                                 let data = (await conn.onWhatsApp(jid))[0] || {}
                                 if (data.exists)
-                                    m.reply(`*[ ⚠️ 𝙍𝙚𝙥𝙤𝙧𝙩𝙚 𝙙𝙚 𝙘𝙤𝙢𝙖𝙣𝙙𝙤 𝙘𝙤𝙣 𝙛𝙖𝙡𝙡𝙤𝙨 ⚠️ ]*\n\n*—◉ 𝑷𝒍𝒖𝒈𝒊𝒏:* ${m.plugin}\n*—◉ 𝑼𝒔𝒖𝒂𝒓𝒊𝒐𝒔:* ${m.sender}\n*—◉ 𝑪𝒐𝒎𝒂𝒏𝒅𝒐:* ${usedPrefix}${command} ${args.join(' ')}\n\n\`\`\`${text}\`\`\`\n\n*[❗] 𝑹𝒆𝒑𝒐𝒓𝒕𝒆𝒍𝒐 𝒂𝒍 𝒄𝒓𝒆𝒂𝒅𝒐𝒓 𝒅𝒆𝒍 𝒃𝒐𝒕 𝒑𝒂𝒓𝒂 𝒅𝒂𝒓𝒍𝒆 𝒖𝒏𝒂 𝒔𝒐𝒍𝒖𝒄𝒊𝒐́𝒏, 𝒑𝒖𝒆𝒅𝒆 𝒖𝒔𝒂𝒓 𝒆𝒍 𝒄𝒐𝒎𝒂𝒏𝒅𝒐 #𝒓𝒆𝒑𝒐𝒓𝒕𝒆*`.trim(), data.jid)
+                                    m.reply(`*[ ⚠️ 𝙍𝙚𝙥𝙤𝙧𝙩𝙚 𝙙𝙚 𝙘𝙤𝙢𝙖𝙣𝙙𝙤 𝙘𝙤𝙣 𝙛𝙖𝙡𝙡𝙤𝙨 ⚠️ ]*\n\n*—◉ 𝑷𝒍𝒖𝒈𝒊𝒏:* ${m.plugin}\n*—◉ 𝑼𝒔𝒖𝒂𝒓𝒊𝒐𝒔:* ${m.sender}\n*—◉ 𝑪𝒐𝒎𝒂𝒏𝒅𝒐:* ${usedPrefix}${command} ${args.join(' ')}\n\n\`\`\`${text}\`\`\`\n\n*[❗] 𝑹𝒆𝒑𝒐𝒓𝒕𝒆𝒍𝒐 𝒂𝒍 𝒄𝒓𝒆𝒂𝒅𝒐𝒓 𝒅𝒆𝒍 𝒃𝒐𝒕 𝒑𝒂𝒓𝒂 𝒅𝒂𝒓𝒍𝒆 𝒖𝒏𝒂 𝒔𝒐𝒍𝒖𝒄𝒊𝒐́𝒏, 𝒑𝒖𝒆𝒅𝒆 𝒖𝒔𝒂𝒓 𝒆𝒍 𝒄𝒐𝒎𝒂𝒏𝒅𝒐  #𝒓𝒆𝒑𝒐𝒓𝒕𝒆*`.trim(), data.jid)
                             }
                         m.reply(text)
                     }
@@ -596,7 +654,7 @@ export async function participantsUpdate({ id, participants, action }) {
     switch (action) {
         case 'add':
         case 'remove':
-           if (chat.welcome) {
+            if (chat.welcome) {
 let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata
 for (let user of participants) {
 let pp = './src/sinfoto.jpg'
@@ -715,9 +773,9 @@ export async function deleteUpdate(message) {
             return
         await this.reply(msg.chat, `
 ━━━━⬣  𝘼𝙣𝙩𝙞 𝙙𝙚𝙡𝙚𝙩𝙚  ⬣━━━━
-*■ 𝑵𝒐𝒎𝒃𝒓𝒆:* @${participant.split`@`[0]}
-*■ 𝑬𝒏𝒗𝒊𝒂𝒅𝒐 𝒆𝒍 𝒎𝒆𝒏𝒔𝒂𝒋𝒆..*
-*■ 𝑷𝒂𝒓𝒂 𝒅𝒆𝒔𝒂𝒄𝒕𝒊𝒗𝒂 𝒆𝒔𝒕𝒂́ 𝒇𝒖𝒏𝒄𝒊𝒐𝒏 𝒆𝒔𝒄𝒓𝒊𝒃𝒂 𝒆𝒍 𝒄𝒐𝒎𝒂𝒏𝒅𝒐:*
+*♨️ 𝑵𝒐𝒎𝒃𝒓𝒆:* @${participant.split`@`[0]}
+*♨️ 𝑬𝒏𝒗𝒊𝒂𝒅𝒐 𝒆𝒍 𝒎𝒆𝒏𝒔𝒂𝒋𝒆..*
+*♨️ 𝑷𝒂𝒓𝒂 𝒅𝒆𝒔𝒂𝒄𝒕𝒊𝒗𝒂 𝒆𝒔𝒕𝒂́ 𝒇𝒖𝒏𝒄𝒊𝒐𝒏 𝒆𝒔𝒄𝒓𝒊𝒃𝒂 𝒆𝒍 𝒄𝒐𝒎𝒂𝒏𝒅𝒐:*
 *—◉ #disable antidelete*
 *—◉ #enable delete*
 ━━━━⬣  𝘼𝙣𝙩𝙞 𝙙𝙚𝙡𝙚𝙩𝙚  ⬣━━━━
