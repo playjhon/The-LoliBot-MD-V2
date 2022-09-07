@@ -286,6 +286,8 @@ export async function handler(chatUpdate) {
                     chat.antiviewonce = false
                 if (!('antiToxic' in chat))
                     chat.antiToxic = false
+                if (!('simi' in chat))
+                    chat.simi = false
                 if (!('antiTraba' in chat))
                     chat.antiTraba = false
                 if (!isNumber(chat.expired))
@@ -307,6 +309,7 @@ export async function handler(chatUpdate) {
                     antiLink2: false,
                     antiviewonce: false,
                     antiToxic: false,
+                    simi: false,
                     antiTraba: false,
                     expired: 0,
                 }
@@ -653,7 +656,6 @@ export async function participantsUpdate({ id, participants, action }) {
     let text = ''
     switch (action) {
         case 'add':
-        case 'remove':
             if (chat.welcome) {
 let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata
 for (let user of participants) {
