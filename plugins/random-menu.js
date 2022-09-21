@@ -59,20 +59,6 @@ readmore: readMore
 }
 text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
   
-
-/*const sections = [
-{
-title: `𝙇𝙄𝙎𝙏𝘼 𝘿𝙀𝙎𝙋𝙇𝙀𝙂𝘼𝘽𝙇𝙀`,
-rows: [
-{title: "❇️ 𝙈𝙚𝙣𝙪 𝙋𝙧𝙞𝙣𝙘𝙞𝙥𝙖𝙡 ❇️", description: null, rowId: `${usedPrefix}menu`},
-{title: "✳️ 𝙈𝙚𝙣𝙪 𝘾𝙤𝙢𝙥𝙡𝙚𝙩𝙤 ✳️", description: null, rowId: `${usedPrefix}allmenu`},
-{title: "✅ 𝘾𝙪𝙚𝙣𝙩𝙖𝙨 𝙊𝙛𝙞𝙘𝙞𝙖𝙡𝙚𝙨 ✅", description: null, rowId: `${usedPrefix}cuentasgatabot`},
-{title: "🔍 𝘽𝙪𝙨𝙘𝙖𝙧 𝘼𝙣𝙞𝙢𝙚🔍", description: "𝙋𝙊𝘿𝙍𝘼𝙎 𝘽𝙐𝙎𝘾𝘼𝙍 𝙄𝙉𝙁𝙊𝙍𝙈𝘼𝘾𝙄𝙊𝙉 𝘿𝙀 𝘼𝙉𝙄𝙈𝙀𝙎", rowId: `${usedPrefix}animeinfo`},
-{title: "🔍 𝘽𝙪𝙨𝙦𝙪𝙚𝙙𝙖 𝙚𝙣 𝙂𝙤𝙤𝙜𝙡𝙚 🔍", description: "𝘽𝙐𝙎𝘾𝘼 𝙈𝘼𝙎 𝙄𝙉𝙁𝙊𝙍𝙈𝘼𝘾𝙄𝙊𝙉 𝙋𝙊𝙍 𝙂𝙊𝙊𝙂𝙇𝙀", rowId: `${usedPrefix}google`},
-{title: "🔍 𝘽𝙪𝙨𝙘𝙖𝙧 𝙇𝙚𝙩𝙧𝙖𝙨 🔍", description: "𝙊𝘽𝙏𝙀𝙉 𝙇𝘼𝙎 𝙇𝙀𝙏𝙍𝘼 𝘿𝙀 𝙇𝘼𝙎 𝘾𝘼𝙉𝘾𝙄𝙊𝙉𝙀𝙎", rowId: `${usedPrefix}letra`},   
-{title: "🔍 𝘽𝙪𝙨𝙘𝙖 𝙥𝙤𝙧 𝙔𝙤𝙪𝙏𝙪𝙗𝙚 🔍", description: "𝘽𝙐𝙎𝘾𝘼 𝙀𝙉𝙇𝘼𝘾𝙀𝙎 𝘿𝙀 𝙑𝙄𝘿𝙀𝙊𝙎 𝙊 𝘾𝘼𝙉𝘼𝙇𝙀𝙎", rowId: `${usedPrefix}ytsearch`},    
-{title: "🔍 𝘽𝙪𝙨𝙘𝙖𝙧 𝙥𝙤𝙧 𝙒𝙞𝙠𝙞𝙥𝙚𝙙𝙞𝙖 🔍", description: "𝙀𝙉𝘾𝙐𝙀𝙉𝙏𝙍𝘼 𝙄𝙉𝙁𝙊𝙍𝙈𝘼𝘾𝙄𝙊𝙉 𝙀𝙉 𝙒𝙄𝙆𝙄𝙋𝙀𝘿𝙄𝘼", rowId: `${usedPrefix}wiki`},      
-]}, ]*/
 //let name = await conn.getName(m.sender)
 let pp = './media/menus/Menuvid1.mp4'
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
@@ -82,35 +68,78 @@ let username = conn.getName(who)
 //user.registered = false
 
 let menu = `
-╭━━〔 *${wm}* 〕━━⬣
-┃💗 *¡𝑯𝒐𝒍𝒂!* ${username}
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃🎈🎈🎈🎈🎈🎈🎈🎈🎈
-┃✪ *𝑬𝒙𝒑𝒆𝒓𝒊𝒆𝒏𝒄𝒊𝒂 ➺ ${exp}*
-┃✪ *𝑵𝒊𝒗𝒆𝒍 ➺ ${level}*
-┃✪ *𝑹𝒐𝒍 ➺* ${role}
-┃✪ *𝑳𝒐𝒍𝒊𝒄𝒐𝒊𝒏𝒔 ➺ $ ${money}*
-┃✪ *𝑼𝒔𝒖𝒂𝒓𝒊𝒐𝒔 ➺ ${Object.keys(global.db.data.users).length}* 
-┃🎈🎈🎈🎈🎈🎈🎈🎈🎈
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃〔 𝑰𝒏𝒇𝒐𝒎𝒂𝒄𝒊𝒐𝒏 〕
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃🔍➺ _${usedPrefix}animeinfo *texto*_
-┃🔍➺ _${usedPrefix}google *texto*_
-┃🔍➺ _${usedPrefix}letra | lirik *texto*_
-┃🔍➺ _${usedPrefix}ytsearch | yts *texto*_
-┃🔍➺ _${usedPrefix}wiki | wikipedia *texto*_
-╰━━━━━━━━━━━━━━━━━━━⬣`.trim()
+╭━〔 *${wm}* 〕━⬣
+┃💗 *¡HOLA!* ${username}
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃⛩️⛩️⛩️⛩️⛩️⛩️⛩️⛩️⛩️
+┃✪ *EXPERIENCIA ➺ ${exp}*
+┃✪ *NIVEL  ➺ ${level}*
+┃✪ *ROL ➺* ${role}
+┃✪ *LOLICOINS ➺ $ ${money}*
+┃✪ *USUARIOS ➺ ${Object.keys(global.db.data.users).length}* 
+┃⛩️⛩️⛩️⛩️⛩️⛩️⛩️⛩️⛩️
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃〔 𝙍𝘼𝙉𝘿𝙊𝙈 𝙈𝙀𝙈𝙀 | 𝘼𝙉𝙄𝙈𝙀 〕
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃🧩 _${usedPrefix}chica_
+┃🧩 _${usedPrefix}chico_
+┃🧩 _${usedPrefix}cristianoronaldo_
+┃🧩 _${usedPrefix}messi_
+┃🧩 _${usedPrefix}meme_
+┃🧩 _${usedPrefix}itzy_
+┃🧩 _${usedPrefix}blackpink_
+┃🧩 _${usedPrefix}kpop *blackpink : exo : bts*_
+┃🧩 _${usedPrefix}lolivid_
+┃🧩 _${usedPrefix}loli_
+┃🧩 _${usedPrefix}navidad_
+┃🧩 _${usedPrefix}ppcouple_
+┃🧩 _${usedPrefix}neko_
+┃🧩 _${usedPrefix}waifu_
+┃🧩 _${usedPrefix}akira_
+┃🧩 _${usedPrefix}akiyama_
+┃🧩 _${usedPrefix}anna_
+┃🧩 _${usedPrefix}asuna_
+┃🧩 _${usedPrefix}ayuzawa_
+┃🧩 _${usedPrefix}boruto_
+┃🧩 _${usedPrefix}chiho_
+┃🧩 _${usedPrefix}chitoge_
+┃🧩 _${usedPrefix}deidara_
+┃🧩 _${usedPrefix}erza_
+┃🧩 _${usedPrefix}elaina_
+┃🧩 _${usedPrefix}eba_
+┃🧩 _${usedPrefix}emilia_
+┃🧩 _${usedPrefix}hestia_
+┃🧩 _${usedPrefix}hinata_
+┃🧩 _${usedPrefix}inori_
+┃🧩 _${usedPrefix}isuzu_
+┃🧩 _${usedPrefix}itachi_
+┃🧩 _${usedPrefix}itori_
+┃🧩 _${usedPrefix}kaga_
+┃🧩 _${usedPrefix}kagura_
+┃🧩 _${usedPrefix}kaori_
+┃🧩 _${usedPrefix}keneki_
+┃🧩 _${usedPrefix}kotori_
+┃🧩 _${usedPrefix}kurumi_
+┃🧩 _${usedPrefix}madara_
+┃🧩 _${usedPrefix}mikasa_
+┃🧩 _${usedPrefix}miku_
+┃🧩 _${usedPrefix}minato_
+┃🧩 _${usedPrefix}naruto_
+┃🧩 _${usedPrefix}nezuko_
+┃🧩 _${usedPrefix}sagiri_
+┃🧩 _${usedPrefix}sasuke_
+┃🧩 _${usedPrefix}sakura_
+┃🧩 _${usedPrefix}cosplay_
+╰━━━━━━━━━━━━━━━━⬣`.trim()
 conn.sendHydrated(m.chat, menu, wm, pp, 'https://github.com/elrebelde21/The-LoliBot-MD', '𝑻𝒉𝒆 𝑳𝒐𝒍𝒊𝑩𝒐𝒕-𝑴𝑫', null, null, [
 ['𝙈𝙚𝙣𝙪́ 𝙘𝙤𝙢𝙥𝙡𝙚𝙩𝙤 💫', '.allmenu'],
-['𝙈𝙚𝙣𝙪 𝙙𝙚𝙨𝙥𝙡𝙚𝙜𝙖𝙗𝙡𝙚 🌟', '/menulista'],
 ['𝙈𝙚𝙣𝙪 𝙋𝙧𝙞𝙣𝙘𝙞𝙥𝙖𝙡 ⚡', '#menu']
 ], m,)
 }
 
 handler.help = ['infomenu'].map(v => v + 'able <option>')
 handler.tags = ['group', 'owner']
-handler.command = /^(buscarmenu)$/i
+handler.command = /^(randommenu)$/i
 //handler.register = true
 handler.exp = 70
 export default handler

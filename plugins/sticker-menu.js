@@ -58,21 +58,7 @@ level, limit, weton, week, date, dateIslamic, time, totalreg, rtotalreg, role,
 readmore: readMore
 }
 text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-  
-
-/*const sections = [
-{
-title: `𝙇𝙄𝙎𝙏𝘼 𝘿𝙀𝙎𝙋𝙇𝙀𝙂𝘼𝘽𝙇𝙀`,
-rows: [
-{title: "❇️ 𝙈𝙚𝙣𝙪 𝙋𝙧𝙞𝙣𝙘𝙞𝙥𝙖𝙡 ❇️", description: null, rowId: `${usedPrefix}menu`},
-{title: "✳️ 𝙈𝙚𝙣𝙪 𝘾𝙤𝙢𝙥𝙡𝙚𝙩𝙤 ✳️", description: null, rowId: `${usedPrefix}allmenu`},
-{title: "✅ 𝘾𝙪𝙚𝙣𝙩𝙖𝙨 𝙊𝙛𝙞𝙘𝙞𝙖𝙡𝙚𝙨 ✅", description: null, rowId: `${usedPrefix}cuentasgatabot`},
-{title: "🔍 𝘽𝙪𝙨𝙘𝙖𝙧 𝘼𝙣𝙞𝙢𝙚🔍", description: "𝙋𝙊𝘿𝙍𝘼𝙎 𝘽𝙐𝙎𝘾𝘼𝙍 𝙄𝙉𝙁𝙊𝙍𝙈𝘼𝘾𝙄𝙊𝙉 𝘿𝙀 𝘼𝙉𝙄𝙈𝙀𝙎", rowId: `${usedPrefix}animeinfo`},
-{title: "🔍 𝘽𝙪𝙨𝙦𝙪𝙚𝙙𝙖 𝙚𝙣 𝙂𝙤𝙤𝙜𝙡𝙚 🔍", description: "𝘽𝙐𝙎𝘾𝘼 𝙈𝘼𝙎 𝙄𝙉𝙁𝙊𝙍𝙈𝘼𝘾𝙄𝙊𝙉 𝙋𝙊𝙍 𝙂𝙊𝙊𝙂𝙇𝙀", rowId: `${usedPrefix}google`},
-{title: "🔍 𝘽𝙪𝙨𝙘𝙖𝙧 𝙇𝙚𝙩𝙧𝙖𝙨 🔍", description: "𝙊𝘽𝙏𝙀𝙉 𝙇𝘼𝙎 𝙇𝙀𝙏𝙍𝘼 𝘿𝙀 𝙇𝘼𝙎 𝘾𝘼𝙉𝘾𝙄𝙊𝙉𝙀𝙎", rowId: `${usedPrefix}letra`},   
-{title: "🔍 𝘽𝙪𝙨𝙘𝙖 𝙥𝙤𝙧 𝙔𝙤𝙪𝙏𝙪𝙗𝙚 🔍", description: "𝘽𝙐𝙎𝘾𝘼 𝙀𝙉𝙇𝘼𝘾𝙀𝙎 𝘿𝙀 𝙑𝙄𝘿𝙀𝙊𝙎 𝙊 𝘾𝘼𝙉𝘼𝙇𝙀𝙎", rowId: `${usedPrefix}ytsearch`},    
-{title: "🔍 𝘽𝙪𝙨𝙘𝙖𝙧 𝙥𝙤𝙧 𝙒𝙞𝙠𝙞𝙥𝙚𝙙𝙞𝙖 🔍", description: "𝙀𝙉𝘾𝙐𝙀𝙉𝙏𝙍𝘼 𝙄𝙉𝙁𝙊𝙍𝙈𝘼𝘾𝙄𝙊𝙉 𝙀𝙉 𝙒𝙄𝙆𝙄𝙋𝙀𝘿𝙄𝘼", rowId: `${usedPrefix}wiki`},      
-]}, ]*/
+ 
 //let name = await conn.getName(m.sender)
 let pp = './media/menus/Menuvid1.mp4'
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
@@ -81,27 +67,46 @@ let username = conn.getName(who)
 //let user = global.db.data.users[m.sender]
 //user.registered = false
 
+
 let menu = `
 ╭━━〔 *${wm}* 〕━━⬣
-┃💗 *¡𝑯𝒐𝒍𝒂!* ${username}
+┃💗 *¡𝑯𝑶𝑳𝑨!* ${username}
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃🎈🎈🎈🎈🎈🎈🎈🎈🎈
-┃✪ *𝑬𝒙𝒑𝒆𝒓𝒊𝒆𝒏𝒄𝒊𝒂 ➺ ${exp}*
+┃🧸🧸🧸🧸🧸🧸🧸🧸🧸 
+┃✪ *𝒆𝒙𝒑𝒆𝒓𝒊𝒆𝒏𝒄𝒊𝒂 ➺ ${exp}*
 ┃✪ *𝑵𝒊𝒗𝒆𝒍 ➺ ${level}*
 ┃✪ *𝑹𝒐𝒍 ➺* ${role}
 ┃✪ *𝑳𝒐𝒍𝒊𝒄𝒐𝒊𝒏𝒔 ➺ $ ${money}*
 ┃✪ *𝑼𝒔𝒖𝒂𝒓𝒊𝒐𝒔 ➺ ${Object.keys(global.db.data.users).length}* 
-┃🎈🎈🎈🎈🎈🎈🎈🎈🎈
+┃🧸🧸🧸🧸🧸🧸🧸🧸🧸 
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃〔 𝑰𝒏𝒇𝒐𝒎𝒂𝒄𝒊𝒐𝒏 〕
+┃〔 𝙈𝙀𝙉𝙐 𝙎𝙏𝙄𝘾𝙆𝙀𝙍𝙎 𝙔 𝙁𝙄𝙇𝙏𝙍𝙊𝙎 〕
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃🔍➺ _${usedPrefix}animeinfo *texto*_
-┃🔍➺ _${usedPrefix}google *texto*_
-┃🔍➺ _${usedPrefix}letra | lirik *texto*_
-┃🔍➺ _${usedPrefix}ytsearch | yts *texto*_
-┃🔍➺ _${usedPrefix}wiki | wikipedia *texto*_
+┃🎐 _${usedPrefix}sticker | s *imagen o video*_
+┃🎐 _${usedPrefix}sticker | s *url de tipo jpg*_
+┃🎐 _${usedPrefix}emojimix *😺+😆*_
+┃🎐 _${usedPrefix}scircle | círculo *imagen*_
+┃🎐 _${usedPrefix}semoji | emoji *tipo emoji*_
+┃🎐 _${usedPrefix}attp *texto*_
+┃🎐 _${usedPrefix}attp2 *texto*_
+┃🎐 _${usedPrefix}ttp *texto*_
+┃🎐 _${usedPrefix}ttp2 *texto*_
+┃🎐 _${usedPrefix}ttp3 *texto*_
+┃🎐 _${usedPrefix}ttp4 *texto*_
+┃🎐 _${usedPrefix}ttp5 *texto*_
+┃🎐 _${usedPrefix}ttp6 *texto*_
+┃🎐 _${usedPrefix}palmaditas | pat *@tag*_
+┃🎐 _${usedPrefix}bofetada | slap *@tag*_
+┃🎐 _${usedPrefix}besar | kiss *@tag*_
+┃🎐 _${usedPrefix}alimentar | food *@tag*_
+┃🎐 _${usedPrefix}dado_
+┃🎐 _${usedPrefix}wm *packname|author*_
+┃🎐 _${usedPrefix}wm *texto1|texto2*_
+┃🎐 _${usedPrefix}stickermarker *efecto : responder a imagen*_
+┃🎐 _${usedPrefix}stickerfilter *efecto : responder a imagen*_
+┃🎐 _${usedPrefix}cs *:* cs2_
 ╰━━━━━━━━━━━━━━━━━━━⬣`.trim()
-conn.sendHydrated(m.chat, menu, wm, pp, 'https://github.com/elrebelde21/The-LoliBot-MD', '𝑻𝒉𝒆 𝑳𝒐𝒍𝒊𝑩𝒐𝒕-𝑴𝑫', null, null, [
+conn.sendHydrated(m.chat, menu, wm, pp, 'https://github.com/elrebelde21/The-LoliBot-MD', 'The Lolibot-MD', null, null, [
 ['𝙈𝙚𝙣𝙪́ 𝙘𝙤𝙢𝙥𝙡𝙚𝙩𝙤 💫', '.allmenu'],
 ['𝙈𝙚𝙣𝙪 𝙙𝙚𝙨𝙥𝙡𝙚𝙜𝙖𝙗𝙡𝙚 🌟', '/menulista'],
 ['𝙈𝙚𝙣𝙪 𝙋𝙧𝙞𝙣𝙘𝙞𝙥𝙖𝙡 ⚡', '#menu']
@@ -110,7 +115,7 @@ conn.sendHydrated(m.chat, menu, wm, pp, 'https://github.com/elrebelde21/The-Loli
 
 handler.help = ['infomenu'].map(v => v + 'able <option>')
 handler.tags = ['group', 'owner']
-handler.command = /^(buscarmenu)$/i
+handler.command = /^(stickermenu)$/i
 //handler.register = true
 handler.exp = 70
 export default handler
