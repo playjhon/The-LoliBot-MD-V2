@@ -892,15 +892,15 @@ export async function handler(chatUpdate) {
                 if (!('autosticker' in chat)) chat.autosticker = false                      
                 if (!('audios' in chat)) chat.audios = false                     
 		if (!('antiver' in chat)) chat.antiver = true                    
-                if (!('antiLink' in chat)) chat.antiLink = false                    
+                if (!('antiLink' in chat)) chat.antiLink = true                    
                 if (!('antiLink2' in chat)) chat.antiLink2 = false
 		if (!('reaction' in chat)) chat.reaction = true 
 		if (!('antiTraba' in chat))
-                    chat.antiTraba = false   
-                if (!('antifakes' in chat)) chat.antifakes = false
+                    chat.antiTraba = true   
+                if (!('antifake' in chat)) chat.antifake = true
                 if (!('simi' in chat)) chat.simi = false
                 if (!('viewonce' in chat)) chat.viewonce = false                    
-                if (!('antitoxic' in chat)) chat.antitoxic = true                    
+               if (!('antitoxic' in chat)) chat.antitoxic = false                     
                 if (!isNumber(chat.expired)) chat.expired = 0
                     
             } else
@@ -918,30 +918,30 @@ export async function handler(chatUpdate) {
                     autosticker: false,
                     audios: true,
 		    antiver: true,
-                    antiLink: false,
+                    antiLink: true,
                     antiLink2: false,
 		    reaction: true,
                     viewonce: false,
-                    antiTraba: false,
-                    antifakes: false,
+                    antiTraba: true,
+                    antifake: true,
                     simi: false,
-                    antitoxic: true,
+                    antitoxic: false,
                     expired: 0,
                 }
             let settings = global.db.data.settings[this.user.jid]
             if (typeof settings !== 'object') global.db.data.settings[this.user.jid] = {}
             if (settings) {
                 if (!('self' in settings)) settings.self = false
-                if (!('autoread' in settings)) settings.autoread = false
+                if (!('autoread' in settings)) settings.autoread = true
                 if (!('restrict' in settings)) settings.restrict = false
-		if (!('temporal' in settings)) settings.temporal = false
-		if (!('antiCall' in settings)) settings.antiCall = false
+		if (!('temporal' in settings)) settings.temporal = true
+		if (!('antiCall' in settings)) settings.antiCall = true
             } else global.db.data.settings[this.user.jid] = {
                 self: false,
-                autoread: false,
+                autoread: true,
                 restrict: false,
-		temporal: false,
-		antiCall: false
+		temporal: true,
+		antiCall: true
             }
         } catch (e) {
             console.error(e)
@@ -1198,7 +1198,7 @@ export async function handler(chatUpdate) {
                         }
                     }
                     if (m.limit)
-                        m.reply(+m.limit + ' 𝘿𝙄𝘼𝙈𝘼𝙉𝙏𝙀(𝙎) 💎 𝙐𝙎𝘼𝘿𝙊(𝙎)')
+                        m.reply(+m.limit + ' 𝑫𝒊𝒂𝒎𝒂𝒏𝒕𝒆𝒔 💎 𝒖𝒔𝒂𝒅𝒐𝒔')
                 }
                 break
             }
@@ -1342,7 +1342,7 @@ export async function callUpdate(callUpdate) {
     for (let nk of callUpdate) { 
     if (nk.isGroup == false) {
     if (nk.status == "offer") {
-    let callmsg = await this.reply(nk.from, `𝙃𝙊𝙇𝘼 *@${nk.from.split('@')[0]}*, 𝙇𝘼𝙎 ${nk.isVideo ? '📲 𝙑𝙄𝘿𝙀𝙊𝙇𝙇𝘼𝙈𝘼𝘿𝘼𝙎' : '📞 𝙇𝙇𝘼𝙈𝘼𝘿𝘼𝙎'} 𝙉𝙊 𝙀𝙎𝙏𝘼𝙉 𝘼𝙐𝙏𝙊𝙍𝙄𝙕𝘼𝘿𝘼𝙎 𝙋𝙊𝙍 𝙇𝙊 𝙌𝙐𝙀 𝙏𝙀𝙉𝘿𝙍𝙀 𝙌𝙐𝙀 𝘽𝙇𝙊𝙌𝙐𝙀𝘼𝙍𝙏𝙀\n\nSi accidentalmente llamaste póngase en contacto con mi creador para que te desbloquee\n grupo asistencia facebook https://facebook.com/groups/721802642266362/ ${ig}`, false, { mentions: [nk.from] })
+    let callmsg = await this.reply(nk.from, `𝗛𝗼𝗹𝗮 *@${nk.from.split('@')[0]}*, 𝗟𝗮𝘀 ${nk.isVideo ? '📲 𝙑𝙄𝘿𝙀𝙊𝙇𝙇𝘼𝙈𝘼𝘿𝘼𝙎' : '📞 𝙇𝙇𝘼𝙈𝘼𝘿𝘼𝙎'}  𝗡𝗼 𝗲𝘀𝘁𝗮𝗻 𝗽𝗲𝗿𝗺𝗶𝘁𝗶𝗱𝗮𝘀, 𝘀𝗲𝗿𝗮́𝘀 𝗯𝗹𝗼𝗾𝘂𝗲𝗮𝗱𝗼\n\n 𝗦𝗶 𝗮𝗰𝗰𝗶𝗱𝗲𝗻𝘁𝗮𝗹𝗺𝗲𝗻𝘁𝗲 𝗹𝗹𝗮𝗺𝗮𝘀𝘁𝗲 𝗽𝗼́𝗻𝗴𝗮𝗻𝘀𝗲 𝗲𝗻 𝗰𝗼𝗻𝘁𝗮𝗰𝘁𝗼 𝗰𝗼𝗻 𝗺𝗶 𝗰𝗿𝗲𝗮𝗱𝗼𝗿 𝗽𝗮𝗿𝗮 𝗾𝘂𝗲 𝘁𝗲 𝗱𝗲𝘀𝗯𝗹𝗼𝗾𝘂𝗲𝗲! \n 𝗚𝗿𝘂𝗽𝗼 𝗮𝘀𝗶𝘀𝘁𝗲𝗻𝗰𝗶𝗮 𝗳𝗮𝗰𝗲𝗯𝗼𝗼𝗸: https://facebook.com/groups/721802642266362/ \n*${ig}*`, false, { mentions: [nk.from] })
     //let data = global.owner.filter(([id, isCreator]) => id && isCreator)
     //await this.sendContact(nk.from, data.map(([id, name]) => [id, name]), false, { quoted: callmsg })
     await this.updateBlockStatus(nk.from, 'block')
@@ -1383,7 +1383,7 @@ global.dfail = (type, m, conn) => {
         private: '╰⊱⚠️⊱ *𝙄𝙣𝙛𝙤* ⊱⚠️⊱╮\n\n_*¡¡𝑬𝒔𝒕𝒆 𝒄𝒐𝒎𝒂𝒏𝒅𝒐 𝒔𝒐𝒍𝒐 𝒑𝒖𝒆𝒅𝒆 𝒖𝒔𝒂𝒓 𝒆𝒍 𝒄𝒉𝒂𝒕 𝒑𝒓𝒊𝒗𝒂𝒅𝒐 𝒅𝒆𝒍 𝒃𝒐𝒕!!*',
         admin: '╰⊱⚠️⊱ *𝙄𝙣𝙛𝙤* ⊱⚠️⊱╮\n\n_*¡¡𝑬𝒔𝒕𝒆 𝒄𝒐𝒎𝒂𝒏𝒅𝒐 𝒔𝒐𝒍𝒐 𝒔𝒆 𝒑𝒖𝒆𝒅𝒆 𝒖𝒔𝒂𝒓 𝒑𝒐𝒓 𝒂𝒅𝒎𝒊𝒏 𝒅𝒆𝒍 𝒈𝒓𝒖𝒑𝒐!!*',
         botAdmin: '╰⊱⚠️⊱ *𝙄𝙣𝙛𝙤* ⊱⚠️⊱╮\n\n_*¡¡𝑷𝒂𝒓𝒂 𝒑𝒐𝒅𝒆𝒓 𝒖𝒔𝒂𝒓 𝒆𝒔𝒕𝒆 𝒄𝒐𝒎𝒂𝒏𝒅𝒐 𝒆𝒍 𝒃𝒐𝒕 (𝒚𝒐) 𝒏𝒆𝒄𝒆𝒔𝒊𝒕𝒂 𝒂𝒅𝒎𝒊𝒏, 𝒉𝒂𝒈𝒂 𝒒𝒖𝒆 𝒃𝒐𝒕 𝒔𝒆𝒂 𝒂𝒅𝒎𝒊𝒏 𝒑𝒂𝒓𝒂 𝒑𝒐𝒅𝒆𝒓 𝒖𝒔𝒂𝒓 𝒆𝒔𝒕𝒆 𝒄𝒐𝒎𝒂𝒏𝒅𝒐!!*',
-        unreg: '*[ 🛑 𝙃𝙚𝙮!! 𝘼𝙡𝙩𝙤, 𝙣𝙤 𝙚𝙨𝙩𝙖́ 𝙧𝙚𝙜𝙞𝙨𝙩𝙧𝙖𝙙𝙤 🛑 ] \n\n_𝑷𝒂𝒓𝒂 𝒑𝒐𝒅𝒆𝒓 𝒖𝒔𝒂𝒓 𝒆𝒍 𝒃𝒐𝒕 𝒏𝒆𝒄𝒆𝒔𝒊𝒕𝒂 𝒓𝒆𝒈𝒊𝒔𝒕𝒓𝒂𝒓𝒕𝒆, 𝒖𝒔𝒂 𝒆𝒍 𝒄𝒐𝒎𝒂𝒏𝒅𝒐* #𝒗𝒆𝒓𝒊𝒇𝒊𝒄𝒂𝒓*',
+        unreg: '╰⊱⚠️⊱ *𝙄𝙣𝙛𝙤* ⊱⚠️⊱╮\n\n_*¡𝑯𝒆𝒚!! 𝑨𝒍𝒕𝒐, 𝒏𝒐 𝒆𝒔𝒕𝒂́ 𝒓𝒆𝒈𝒊𝒔𝒕𝒓𝒂𝒅𝒐 𝑷𝒂𝒓𝒂 𝒑𝒐𝒅𝒆𝒓 𝒖𝒔𝒂𝒓 𝒆𝒍 𝒃𝒐𝒕 𝒏𝒆𝒄𝒆𝒔𝒊𝒕𝒂 𝒓𝒆𝒈𝒊𝒔𝒕𝒓𝒂𝒓𝒕𝒆, 𝒖𝒔𝒂 𝒆𝒍 𝒄𝒐𝒎𝒂𝒏𝒅𝒐 #𝒗𝒆𝒓𝒊𝒇𝒊𝒄𝒂𝒓*',
         restrict: '╰⊱⚠️⊱ *𝙄𝙣𝙛𝙤* ⊱⚠️⊱╮\n\n_*¡¡𝑬𝒔𝒕𝒆 𝒄𝒐𝒎𝒂𝒏𝒅𝒐 𝒆𝒔𝒕𝒂́ 𝒓𝒆𝒔𝒕𝒓𝒊𝒏𝒈𝒊𝒅𝒐/𝒅𝒆𝒔𝒂𝒄𝒕𝒊𝒗𝒂𝒅𝒐 𝒑𝒐𝒓 𝒅𝒆𝒔𝒊𝒄𝒊𝒐𝒏 𝒅𝒆𝒍 𝒑𝒓𝒐𝒑𝒊𝒆𝒕𝒂𝒓𝒊𝒐/𝒂 (𝒐𝒘𝒏𝒆𝒓) 𝒅𝒆𝒍 𝒃𝒐𝒕!!*'
     }[type]
     if (msg) return m.reply(msg) 
