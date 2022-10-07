@@ -1,88 +1,43 @@
 import { createHash } from 'crypto'
 let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i
-let handler = async function (m, { text, usedPrefix, command }) {
-	function pickRandom(list) {
-  return list[Math.floor(Math.random() * list.length)]
-}
-	let namae = conn.getName(m.sender)
-	const sections = [
-	{
-	title: "Selecciona Tu Edad Aqui!",
-	rows: [
-	    {title: "Años Random", rowId: '.reg ' + namae + '.' + pickRandom(['30','29','28','27','26','25','24','23','22','21','20','19','18','17','16','15','14','13','12','11','10','9'])}
-	]
-    },
-    {
-	title: "ADULTO",
-	rows: [
-	    {title: "30 Años", rowId: '.reg ' + namae + '.30 '},
-	    {title: "29 Años", rowId: '.reg ' + namae + '.29 '},
-	    {title: "28 Años", rowId: '.reg ' + namae + '.28 '},
-	{title: "27 Años", rowId: '.reg ' + namae + '.27 '},
-	{title: "26 Años", rowId: '.reg ' + namae + '.26 '},
-	{title: "25 Años", rowId: '.reg ' + namae + '.25 '},
-	{title: "24 Años", rowId: '.reg ' + namae + '.24 '},
-	{title: "23 Años", rowId: '.reg ' + namae + '.23 '},
-	{title: "22 Años", rowId: '.reg ' + namae + '.22 '},
-	{title: "21 Años", rowId: '.reg ' + namae + '.21 '}
-	]
-    },
-    {
-	title: "JOVEN",
-	rows: [
-	    {title: "20 Años", rowId: '.reg ' + namae + '.20 '},
-	    {title: "19 Años", rowId: '.reg ' + namae + '.19 '},
-	    {title: "18 Años", rowId: '.reg ' + namae + '.18 '},
-	{title: "17 Años", rowId: '.reg ' + namae + '.17 '},
-	{title: "16 Años", rowId: '.reg ' + namae + '.16 '},
-	{title: "15 Años", rowId: '.reg ' + namae + '.15 '},
-	{title: "14 Años", rowId: '.reg ' + namae + '.14 '},
-	{title: "13 Años", rowId: '.reg ' + namae + '.13 '},
-	{title: "12 Años", rowId: '.reg ' + namae + '.12 '},
-	{title: "11 Años", rowId: '.reg ' + namae + '.11 '},
-	{title: "10 Años", rowId: '.reg ' + namae + '.10 '},
-	{title: "9 Años", rowId: '.reg ' + namae + '.9 '}
-	]
-    },
-]
-
-const listMessage = {
-  text: `Por favor selecciona tu edad pulsando el boton...\n*Tu nombre:* ${conn.getName(m.sender)}\nQuieres poner otro mombre? Escribe *${usedPrefix + command} TuNombre.TusAños*\n *ejemplo:* *${usedPrefix + command} lolibot.21*`,
-  footer: global.wm,
-  title: "━━━━「 Registro 」━━━━",
-  buttonText: "Pulsa Aqui!",
-  sections
-}
-
-  let user = global.db.data.users[m.sender]
-  if (user.registered === true) throw `[💬] Ya estás registrado\nQuieres volver a registrarte? *${usedPrefix}unreg <NUMERO SN>*`
-  if (!Reg.test(text)) return conn.sendMessage(m.chat, listMessage, m)
+let handler = async function (m, { conn, text, usedPrefix, command }) {
+  let user = db.data.users[m.sender]
+  let name2 = conn.getName(m.sender)
+  if (user.registered === true) throw `✳️ 𝙔𝙖 𝙚𝙨𝙩𝙖 𝙧𝙚𝙜𝙞𝙨𝙩𝙧𝙖𝙙𝙤\n\n𝙌𝙪𝙞𝙚𝙧𝙚 𝙫𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙧𝙚𝙜𝙞𝙨𝙩𝙧𝙖𝙨𝙩𝙚?\n\n 📌 𝙐𝙨𝙚 𝙚𝙡 𝙘𝙤𝙢𝙖𝙣𝙙𝙤 𝙥𝙖𝙧𝙖 𝙚𝙡𝙞𝙢𝙞𝙣𝙖𝙧 𝙚𝙡 𝙧𝙚𝙜𝙞𝙨𝙩𝙧𝙤 \n*${usedPrefix}unreg* <Número de serie>`
+  if (!Reg.test(text)) throw `⚠️ 𝙁𝙤𝙧𝙢𝙖𝙩𝙤 𝙞𝙣𝙘𝙤𝙧𝙧𝙚𝙘𝙩𝙤\n\n ✳️ 𝙐𝙨𝙤 𝙚𝙡 𝙘𝙤𝙢𝙖𝙣𝙙𝙤: *${usedPrefix + command} nombre.edad*\n📌𝙀𝙟𝙚𝙢𝙥𝙡𝙤 : *${usedPrefix + command}* ${name2}.16`
   let [_, name, splitter, age] = text.match(Reg)
-  if (!name) throw 'El nombre no puede estar vacío (Letras)'
-  if (!age) throw 'La edad no puede estar vacía (Numeros)'
+  if (!name) throw '✳️ 𝑬𝒍 𝒏𝒐𝒎𝒃𝒓𝒆 𝒏𝒐 𝒑𝒖𝒆𝒅𝒆 𝒆𝒔𝒕𝒂 𝒗𝒂𝒄𝒊́𝒐'
+  if (!age) throw '✳️ 𝑳𝒂 𝒆𝒅𝒂𝒅 𝒏𝒐 𝒑𝒖𝒆𝒅𝒆 𝒆𝒔𝒕𝒂 𝒗𝒂𝒄𝒊́𝒂'
+  if (name.length >= 30) throw '✳️ 𝑷𝒇𝒇𝒇, 𝒆𝒍 𝒏𝒐𝒎𝒃𝒓𝒆 𝒆𝒔  𝒍𝒂𝒓𝒈𝒐' 
   age = parseInt(age)
-  if (age > 30) throw 'Que viejo (。-`ω´-)'
-  if (age < 5) throw 'Los bebes no saben escribir ._.'
+  if (age > 100) throw '👴🏻 𝑷𝒂 𝒆𝒔𝒕𝒂 𝒗𝒊𝒆𝒋𝒐𝒔'
+  if (age < 5) throw '🚼  𝑽𝒓𝒈 𝒍𝒐𝒔 𝒃𝒆𝒃𝒆́𝒔 𝒔𝒂𝒃𝒆𝒓 𝒆𝒔𝒄𝒓𝒊𝒃𝒊𝒓 ✍️😳 '
   user.name = name.trim()
   user.age = age
   user.regTime = + new Date
   user.registered = true
+global.db.data.users[m.sender].money += 800
+global.db.data.users[m.sender].limit += 6
+global.db.data.users[m.sender].exp += 305
+global.db.data.users[m.sender].joincount += 4
   let sn = createHash('md5').update(m.sender).digest('hex')
-  let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : m.fromMe ? conn.user.jid : m.sender
   m.reply(`
-┏┅ ━━━━━━━━━━━━ ┅ ━
-┇「 Registro Completado  」
-┣┅ ━━━━━━━━━━━━ ┅ ━
-┃ *𝑵𝑶𝑴𝑩𝑹𝑬:* ${name}
-┃ *𝑬𝑫𝑨𝑫:* ${age} años
-┃  *𝑩𝑶𝑵𝑶* 
-┃ *$350 XP*
-┃ *$200 𝑳𝑶𝑳𝑰𝑪𝑶𝑰𝑵𝑺*
-┃ *$2 𝑫𝑰𝑨𝑴𝑨𝑵𝑻𝑬*
-┃ *𝙉𝙪́𝙢𝙚𝙧𝙤 𝙙𝙚 𝙨𝙚𝙧𝙞𝙚:* 
-┃ ${sn}
-┗┅ ━━━━━━━━━━━━ ┅ ━
+╭━━━[  𝙍𝙚𝙜𝙞𝙨𝙩𝙧𝙤 𝙘𝙤𝙢𝙥𝙡𝙚𝙩𝙖𝙙𝙤 ]━━━━⬣
+┃ *𝙉𝙤𝙢𝙗𝙧𝙚:* ${name}
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃ *𝙀𝙙𝙖𝙙:* ${age} años
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃  *𝘽𝙤𝙣𝙤* 
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃ *6 𝘿𝙞𝙖𝙢𝙖𝙣𝙩𝙚𝙨 💎*
+┃ *800 𝙇𝙤𝙡𝙞𝙘𝙤𝙞𝙣𝙨*
+┃ *305 𝙓𝙥*
+┃ *4 𝙏𝙤𝙠𝙚𝙣𝙨*
+╰━━━━━━━━━━━━━━━━━━⬣
 `.trim())
+//let author = global.author
+await m.reply(`𝑻𝒖 𝒏𝒖𝒎𝒆𝒓𝒐 𝒅𝒆 𝒔𝒆𝒓𝒊𝒆 𝒕𝒆 𝒔𝒆𝒓𝒗𝒊𝒓𝒂́ 𝒆𝒏 𝒄𝒂𝒔𝒐 𝒆𝒏 𝒒𝒖𝒆 𝒒𝒖𝒊𝒆𝒓𝒂𝒔 𝒃𝒐𝒓𝒓𝒂𝒓 𝒔𝒖𝒔 𝒓𝒆𝒈𝒊𝒔𝒕𝒓𝒐𝒔 👇👇👇`)
+await m.reply(`${sn}`) 
 }
 handler.help = ['daftar', 'register'].map(v => v + ' <nama>.<umur>')
 handler.tags = ['xp']
