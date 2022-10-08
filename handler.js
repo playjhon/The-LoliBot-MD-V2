@@ -892,15 +892,15 @@ export async function handler(chatUpdate) {
                 if (!('autosticker' in chat)) chat.autosticker = false                      
                 if (!('audios' in chat)) chat.audios = false                     
 		if (!('antiver' in chat)) chat.antiver = true                    
-                if (!('antiLink' in chat)) chat.antiLink = false                    
+                if (!('antiLink' in chat)) chat.antiLink = true                    
                 if (!('antiLink2' in chat)) chat.antiLink2 = false
 		if (!('reaction' in chat)) chat.reaction = true 
 		if (!('antiTraba' in chat))
-                    chat.antiTraba = false   
-                if (!('antifakes' in chat)) chat.antifakes = false
+                    chat.antiTraba = true   
+                if (!('antifakes' in chat)) chat.antifakes = true
                 if (!('simi' in chat)) chat.simi = false
                 if (!('viewonce' in chat)) chat.viewonce = false                    
-                if (!('antitoxic' in chat)) chat.antitoxic = true                    
+                if (!('antitoxic' in chat)) chat.antitoxic = false                    
                 if (!isNumber(chat.expired)) chat.expired = 0
                     
             } else
@@ -918,14 +918,14 @@ export async function handler(chatUpdate) {
                     autosticker: false,
                     audios: true,
 		    antiver: true,
-                    antiLink: false,
+                    antiLink: true,
                     antiLink2: false,
 		    reaction: true,
                     viewonce: false,
-                    antiTraba: false,
-                    antifakes: false,
+                    antiTraba: true,
+                    antifakes: true,
                     simi: false,
-                    antitoxic: true,
+                    antitoxic: false,
                     expired: 0,
                 }
             let settings = global.db.data.settings[this.user.jid]
@@ -934,14 +934,14 @@ export async function handler(chatUpdate) {
                 if (!('self' in settings)) settings.self = false
                 if (!('autoread' in settings)) settings.autoread = false
                 if (!('restrict' in settings)) settings.restrict = false
-		if (!('temporal' in settings)) settings.temporal = false
-		if (!('antiCall' in settings)) settings.antiCall = false
+		if (!('temporal' in settings)) settings.temporal = true
+		if (!('antiCall' in settings)) settings.antiCall = true
             } else global.db.data.settings[this.user.jid] = {
                 self: false,
                 autoread: false,
                 restrict: false,
-		temporal: false,
-		antiCall: false
+		temporal: true,
+		antiCall: true
             }
         } catch (e) {
             console.error(e)
